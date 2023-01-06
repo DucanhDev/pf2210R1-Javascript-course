@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link  rel="stylesheet" href="Casestudy.css">
+</head>
+<body style="background-color: rgb(230, 230, 184);">
+    <div class="container">
+       <div class="creator"><h2 > Created by: Đức Anh </h2></div>
+       <div class="header"> 
+          <h3 style="margin: 12px"> To do List </h3>
+          <input type="text" id="inp" placeholder="Tasks...">
+          <button onclick="newtask()" class="add"> Add </button>
+       </div>
+       <ul style="list-style-type: none;" id="ul">
+        <li> Deadline 1 </li>
+        <li> Deadline 2 </li>
+        <li> Deadline 3 </li>
+        <li> Deadline 4 </li>
+        <li> Deadline 5 </li>
+        <li> Deadline 6 </li>
+       </ul>
+    </div>
+    <script>
+        function newtask() {
+            let input = document.getElementById('inp').value;
+            let li = document.createElement('li');
+            let text = document.createTextNode(input);
+            li.appendChild(text);
+            if ( input == ''){
+                alert(' Nhập gì đó ')
+            } else {
+                document.getElementById('ul').appendChild(li);
+            }
+            document.getElementById('inp').value = '';
+        }
+     // Tạo button xóa và thêm nó vào trong cá thẻ li
+  let list = document.getElementsByTagName("LI");
+  for (let i = 0; i < list.length; i++) {
+    let span = document.createElement("SPAN");
+    let text = document.createTextNode("\u00D7");
+    span.className = "complete";
+    span.appendChild(text);
+    list[i].appendChild(span);
+  }
+ 
+  // Khi button xóa được click thì ẩn phần tử li chứa nó
+  let complete = document.getElementsByClassName("complete");
+  for (let i = 0; i < complete.length; i++) {
+    complete[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+    </script>
+</body>
+</html>
