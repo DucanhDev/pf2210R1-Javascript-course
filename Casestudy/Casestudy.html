@@ -16,7 +16,7 @@
           <button onclick="newtask()" class="add"> Add </button>
        </div>
        <ul style="list-style-type: none;" id="ul">
-        <li> Deadline 1 </li>
+        <li class="check"> Deadline 1 </li>
         <li> Deadline 2 </li>
         <li> Deadline 3 </li>
         <li> Deadline 4 </li>
@@ -37,7 +37,14 @@
             }
             document.getElementById('inp').value = '';
         }
-     // Tạo button xóa và thêm nó vào trong cá thẻ li
+        // Thêm class= "check" khi được click
+      let listtasks = document.querySelector('ul');
+      listtasks.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+          ev.target.classList.toggle('checked');
+        }
+      }, false);
+     // Tạo button xóa và thêm nó vào trong các thẻ li
   let list = document.getElementsByTagName("LI");
   for (let i = 0; i < list.length; i++) {
     let span = document.createElement("SPAN");

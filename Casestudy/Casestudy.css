@@ -55,6 +55,12 @@ ul li {
 ul li:hover{
     background-color:gold;
   }
+  /* Dấu gạch ngang khi đánh dấu việc đã hoàn thành */
+ul li.checked {
+    background: rgb(21, 21, 21);
+    color: rgb(218, 214, 214);
+    text-decoration: line-through;
+  }
   .complete{
     position: absolute;
     right: 0;
